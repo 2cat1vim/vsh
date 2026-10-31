@@ -7,13 +7,33 @@ typedef struct s_in {
 } t_in;
 
 int parse_in(const char *_line, t_in *_in) {
-	_in->cmd = malloc(sizeof(char*) * 1);
-	_in->cmd[0] = strdup(_line);
+	_in->cmd = calloc(16, sizeof(char*));
+	if (!_in->cmd) {
+		exit(EXIT_SUCCESS);
+	}
+	char **ptr = _in->cmd;
+	while (*_line) {
+		*ptr = calloc(32, sizeof(char));
+		if (!*ptr) {
+			free(_in->cmd);
+			exit(EXIT_SUCCESS);
+		}
+		char *cptr = *ptr;
+		while (!isspace(*_line) && *_line) {
+			*cptr++ = *_line++;
+		}
+		if (isspace(*_line)) {
+			_line++;
+		}
+		*cptr = '\0';
+		ptr++;
+	}
 	return 0;
 }
 
 int dispatch_in(t_in *_in) {
 	fprintf(stderr, STDERR_UKW_CMD, _in->cmd[0]);
+	printf("alive\n");
 	return 0;
 }
 
