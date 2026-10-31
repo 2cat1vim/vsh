@@ -1,0 +1,9 @@
+#ifndef LINK_H
+#define LINK_H
+/* this header purpose is to link to functions prototype,
+ * across the project.
+*/
+
+t_opt* opt_handling(size_t _n, char **_args);
+
+#endif
