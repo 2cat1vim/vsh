@@ -5,5 +5,6 @@
 */
 
 t_opt* opt_handling(size_t _n, char **_args);
+int prompt_loop(t_opt *_opt);
 
 #endif

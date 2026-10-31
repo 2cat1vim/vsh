@@ -1,8 +1,9 @@
 NAME = vsh
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror 
+CFLAGS = -g -Wall -Wextra -Werror
 SRC = srcs/main.c \
-      srcs/opt.c
+      srcs/opt.c \
+      srcs/readline.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -10,7 +11,7 @@ all: $(NAME)
 
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -lm
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -lm -lreadline
 
 clean: 
 	rm -f $(OBJS)

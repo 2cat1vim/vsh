@@ -17,4 +17,6 @@ main(int _ac, char **_av) {
 	t_opt *opt;
 	opt = opt_handling(_ac, _av);
 	(void)opt;
+	prompt_loop(opt);
+	free(opt);
 }

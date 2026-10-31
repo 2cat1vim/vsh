@@ -37,9 +37,11 @@ opt_parse(size_t _n, char **_args, t_opt *_opt) {
 			_opt->o_flags |= VERBOSE_OPT;
 			break;
 		case LIST_OPT_HELP:
+			free(_opt);
 			fprintf(stdout, STDOUT_HELP);
 			exit(EXIT_SUCCESS);
 		default: 
+			free(_opt);
 			fprintf(stderr, STDERR_ARG_INC, _args[i]);	
 			exit(EXIT_FAILURE);
 		}
@@ -49,9 +51,9 @@ opt_parse(size_t _n, char **_args, t_opt *_opt) {
 
 t_opt*
 opt_handling(size_t _n, char **_args) {
-	t_opt *opt = malloc(sizeof(t_opt) + 1);
+	t_opt *opt = calloc(1, sizeof(t_opt));
 	if (!opt) {
-		perror("malloc");
+		perror("calloc");
 		exit(EXIT_FAILURE);
 	}
 	opt_parse(_n, _args, opt);

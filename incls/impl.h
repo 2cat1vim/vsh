@@ -11,5 +11,6 @@
 	"[vsh]: ./vsh [options]\n -? | -h | -help	get this message\n"
 #define STDERR_ARG_INC \
        	"[vsh]: incorrect option `%s` : ./vsh -?\n"
-
+#define STDERR_UKW_CMD \
+	"[vzh]: unknown command `%s`\n"
 #endif
