@@ -41,6 +41,3 @@ vsh is **free of AI**. No AI-generated or AI-assisted contributions will be acce
 
 By submitting a contribution, you confirm that it is entirely your own human work. Contributions found to be AI-generated will be rejected.
 
-## License
-
-vsh is open source. See [`LICENSE`](LICENSE) for details.
