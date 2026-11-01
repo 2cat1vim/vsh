@@ -16,17 +16,24 @@ vsh is free, open source, and **written by humans only**.
 ## Binaries
 - print > .bin/print
 ```
-vsh-1.0$ print aaaaa\naaaa
+$ print aaaaa\naaaa
 aaaaa
 aaaa
 ```
 - see > .bin/see
 ```
-vsh-1.0$ see test0.c test1.c
+$ see test0.c test1.c
 test0.c:
 ......
 test1.c:
 ......
+```
+- list > .bin/list
+```
+$ list {args or not}
+file0 mode... byte... uid... gid... date  00:00
+file1 mode... byte... uid... gid... date 11:00
+n 02
 ```
 ## Building
 
