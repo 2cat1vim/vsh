@@ -1,4 +1,4 @@
-# vsh
+# vsh | portable shell w built-in binaries.
 <img width="382" height="399" alt="image" src="https://github.com/user-attachments/assets/c30472c0-bcb6-4ffe-acf1-63b72fd964a0" />
 
 **vsh** is a shell written entirely in C. It ships as its own standalone binary and follows its own way of working — it is not a clone or wrapper of bash, zsh or any other existing shell.
