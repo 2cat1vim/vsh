@@ -9,14 +9,16 @@ typedef struct s_in {
 int parse_in(const char *_line, t_in *_in) {
 	_in->cmd = calloc(16, sizeof(char*));
 	if (!_in->cmd) {
-		exit(EXIT_SUCCESS);
+		perror("calloc");
+		exit(EXIT_FAILURE);
 	}
 	char **ptr = _in->cmd;
 	while (*_line) {
 		*ptr = calloc(32, sizeof(char));
 		if (!*ptr) {
 			free(_in->cmd);
-			exit(EXIT_SUCCESS);
+			perror("calloc");
+			exit(EXIT_FAILURE);
 		}
 		char *cptr = *ptr;
 		while (!isspace(*_line) && *_line) {
@@ -52,7 +54,6 @@ int dispatch_in(t_in *_in) {
 		exit(EXIT_FAILURE);
 	case 0:
 		execv(p, _in->cmd);
-		fflush(stdout);
 		_exit(COMMAND_NOT_FOUND);
 	default:
 		if (waitpid(pid, &status, 0) == -1) {
