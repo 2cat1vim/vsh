@@ -31,6 +31,8 @@ int parse_in(const char *_line, t_in *_in) {
 	return 0;
 }
 
+// Need to add the define of return in a dedicated header
+// 10 will be ref to CMD not found; MAGIC NUMBER for the moment.
 #define COMMAND_NOT_FOUND 10
 #define BIN_PATH ".bin/"
 int dispatch_in(t_in *_in) {
