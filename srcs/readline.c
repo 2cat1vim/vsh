@@ -71,8 +71,13 @@ int
 prompt_loop(t_opt *_opt) {
 	(void)_opt;
 	t_in *in = calloc(1, sizeof(t_in));
+	if (!in) {
+		perror("calloc");
+		exit(EXIT_FAILURE);
+	}
+	show_header();
 	while (1) {
-		char *line = readline("vsh-1.0$ ");
+		char *line = readline("$ ");
 		if (!line) {
 			free(line);
 			exit(EXIT_SUCCESS);

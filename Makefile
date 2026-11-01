@@ -3,7 +3,8 @@ CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 SRC = srcs/main.c \
       srcs/opt.c \
-      srcs/readline.c
+      srcs/readline.c \
+      srcs/design.c
 
 OBJS = $(SRC:.c=.o)
 
