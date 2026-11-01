@@ -13,6 +13,9 @@ vsh is free, open source, and **written by humans only**.
 - Its own design and behavior, built from scratch
 - Open source, free to use, study, modify and share
 
+## Binaries
+- ./bin/vprint > print in stdout. (no opt for the moment)
+
 ## Building
 
 ```sh
@@ -40,4 +43,3 @@ vsh is **free of AI**. No AI-generated or AI-assisted contributions will be acce
 - Issues or pull requests written by AI or automated agents
 
 By submitting a contribution, you confirm that it is entirely your own human work. Contributions found to be AI-generated will be rejected.
-
