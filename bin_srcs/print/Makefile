@@ -1,4 +1,4 @@
-NAME = vprint
+NAME = ../../.bin/print
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 SRC = main.c \
@@ -8,7 +8,7 @@ OBJS = $(SRC:.c=.o)
 all: $(NAME)
 
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) | $(BIN_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -lm -lreadline
 
 clean: 

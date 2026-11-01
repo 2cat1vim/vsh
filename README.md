@@ -14,8 +14,20 @@ vsh is free, open source, and **written by humans only**.
 - Open source, free to use, study, modify and share
 
 ## Binaries
-- ./bin/vprint > print in stdout. (no opt for the moment)
-
+- print > .bin/print
+```
+vsh-1.0$ print aaaaa\naaaa
+aaaaa
+aaaa
+```
+- see > .bin/see
+```
+vsh-1.0$ see test0.c test1.c
+test0.c:
+......
+test1.c:
+......
+```
 ## Building
 
 ```sh
