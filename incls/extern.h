@@ -10,5 +10,5 @@
 #include <ctype.h>
 #include <readline/readline.h>
 #include <readline/history.h>
-
+#include <sys/wait.h>
 #endif
