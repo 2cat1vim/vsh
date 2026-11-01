@@ -41,7 +41,7 @@ n 02
 ```sh
 git clone <repo-url>
 cd vsh
-make
+./setup.sh
 ```
 
 ## Running
