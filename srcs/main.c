@@ -9,11 +9,14 @@
 #include "../incls/impl.h"
 
 int
-main(int _ac, char **_av) {
+main(int _ac, char **_av, char **e) {
 	/* Parse the options >
 	 * Register them into t_opt >
 	 * Allocate and use.
 	 */
+	t_env *env;
+	env = env_handling(e);
+	(void)env;
 	t_opt *opt;
 	opt = opt_handling(_ac, _av);
 	(void)opt;
