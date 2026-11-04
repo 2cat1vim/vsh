@@ -3,6 +3,7 @@ CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 SRC = srcs/main.c \
       srcs/opt.c \
+	  srcs/env.c \
       srcs/readline.c \
       srcs/design.c
 

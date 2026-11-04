@@ -22,40 +22,33 @@ opt_find(const char *_arg, const char ***list_opt) {
 	return -1;
 }
 
-int
-opt_parse(size_t _n, char **_args, t_opt *_opt) {
+unsigned int
+opt_parse(size_t _n, char **_args) {
 	const char *help[] = {"-?", "-h", "--help", NULL};
 	const char *verbose[] = {"-v", "--verbose", NULL};
 	const char **list_opt[] = {help, verbose, NULL};
+	unsigned int flags = 0;
 	if (_n == NO_OPT) {
-		_opt->o_flags |= NO_OPT;	
-		return 0;
+		flags |= NO_OPT;	
+		return flags;
 	}
 	for (size_t i = 1; i < _n; i++) {
 		switch (opt_find(_args[i], list_opt)) {
 		case LIST_OPT_VERBOSE:
-			_opt->o_flags |= VERBOSE_OPT;
+			flags |= VERBOSE_OPT;
 			break;
 		case LIST_OPT_HELP:
-			free(_opt);
 			fprintf(stdout, STDOUT_HELP);
 			exit(EXIT_SUCCESS);
 		default: 
-			free(_opt);
 			fprintf(stderr, STDERR_ARG_INC, _args[i]);	
 			exit(EXIT_FAILURE);
 		}
 	}
-	return 0;
+	return flags;
 }
 
-t_opt*
+unsigned int
 opt_handling(size_t _n, char **_args) {
-	t_opt *opt = calloc(1, sizeof(t_opt));
-	if (!opt) {
-		perror("calloc");
-		exit(EXIT_FAILURE);
-	}
-	opt_parse(_n, _args, opt);
-	return opt;
+	return opt_parse(_n, _args);
 }

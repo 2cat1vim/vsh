@@ -1,21 +1,21 @@
 #include "../incls/impl.h"
 
 t_env*
-env_handling(char **e) {
+env_handling(char **_env) {
 	t_env *env = calloc(1, sizeof(t_env));
 	if (!env) {
 		perror("calloc");
 		exit(EXIT_SUCCESS);
 	}
-	for (size_t i = 0; e[i]; i++) {
-		if (strncmp(e[i], "PWD=", 4) == 0) {
-			env->pwd = strdup(e[i] + 4);
+	for (size_t i = 0; _env[i]; i++) {
+		if (strncmp(_env[i], "PWD=", 4) == 0) {
+			env->pwd = strdup(_env[i] + 4);
 		}
-		else if (strncmp(e[i], "USERNAME=", 9) == 0) {
-			env->user = strdup(e[i] + 9);
+		else if (strncmp(_env[i], "USERNAME=", 9) == 0) {
+			env->user = strdup(_env[i] + 9);
 		}
-		else if (strncmp(e[i], "HOME=", 5) == 0) {
-			env->home = strdup(e[i] + 5);
+		else if (strncmp(_env[i], "HOME=", 5) == 0) {
+			env->home = strdup(_env[i] + 5);
 		}
 	}
 	printf("user: %s, pwd: %s, home: %s\n", env->user, env->pwd, env->home);
