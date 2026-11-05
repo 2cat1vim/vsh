@@ -27,13 +27,29 @@ check_os:
 		echo "Detected OS: $(STROS)";\
 	fi
 
+check_package:
+	@if dpkg -s libreadline-dev > /dev/null 2>&1; then\
+		echo "Libreadline-dev is already installed";\
+	else\
+		echo "Libreadline-dev is not installed";\
+		echo "Downloading it..";\
+		sudo apt-get install -y libreadline-dev;\
+	fi
+	@if dpkg -s clang > /dev/null 2>&1; then\
+		echo "Clang is already installed";\
+	else\
+		echo "Clang is not installed";\
+		echo "Download it..";\
+		sudo apt-get install -y clang;\
+	fi
+
 NAME := vsh_$(STROS)
 
 OBJS = $(SRC:.c=.o)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -lm -lreadline
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -lreadline
 
-all: check_os $(NAME)
+all: check_os check_package $(NAME)
 
 clean: 
 	rm -f $(OBJS)
@@ -43,4 +59,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all check_os clean fclean re
+.PHONY: all check_package check_os clean fclean re
