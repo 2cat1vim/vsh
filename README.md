@@ -1,5 +1,4 @@
 # vsh | portable shell w built-in binaries.
-<img width="382" height="399" alt="image" src="https://github.com/user-attachments/assets/c30472c0-bcb6-4ffe-acf1-63b72fd964a0" />
 
 **vsh** is a shell written entirely in C. It ships as its own standalone binary and follows its own way of working — it is not a clone or wrapper of bash, zsh or any other existing shell.
 
@@ -13,6 +12,13 @@ vsh is free, open source, and **written by humans only**.
 - Its own binary: `vsh`
 - Its own design and behavior, built from scratch
 - Open source, free to use, study, modify and share
+
+# TODO:
+``` A normal pipeline of cmds in vsh would look like this in the future:
+run @print 'hello\nworld' in 'hello.txt'
+run @see 'test.c test1.c' into run @search 'int main(void)'
+run @list 'dir0/' and run @list 'dir1'
+```
 
 ## Binaries
 - print > .bin/print
